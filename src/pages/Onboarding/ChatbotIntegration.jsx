@@ -45,7 +45,7 @@ export default function ChatbotIntegration() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background p-4 relative">
+    <div className="min-h-screen flex flex-col  p-4 relative">
       {/* Feedback Top Bar */}
       <div className="bg-secondary text-card-foreground px-4 py-2 rounded-md mb-4 shadow-soft flex items-center justify-between">
         <span className="text-sm font-semibold">Chatbot not working as intended? Share feedback</span>

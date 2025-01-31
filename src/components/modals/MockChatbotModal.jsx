@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
@@ -17,14 +13,17 @@ const MockChatbotModal = ({ onClose }) => {
   const inputRef = useRef(null);
 
   const handleSendMessage = () => {
-    if (inputRef.current.value.trim() === "") return;
+    if (!inputRef.current.value.trim()) return;
 
     const newMessage = inputRef.current.value;
     setMessages([...messages, { type: "user", text: newMessage }]);
     inputRef.current.value = "";
 
     setTimeout(() => {
-      setMessages([...messages, { type: "user", text: newMessage }, { type: "bot", text: "Great question! Let me get back to you on that." }]);
+      setMessages((prev) => [
+        ...prev,
+        { type: "bot", text: "Great question! Let me get back to you on that." },
+      ]);
     }, 1000);
   };
 
@@ -61,7 +60,7 @@ const MockChatbotModal = ({ onClose }) => {
           {/* Chatbot Bubble */}
           {!isChatOpen && (
             <motion.button
-              className="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-md flex items-center justify-center animate-bob"
+              className="fixed bottom-8 right-8 bg-primary text-white p-5 rounded-full shadow-md flex items-center justify-center animate-bob"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -69,54 +68,60 @@ const MockChatbotModal = ({ onClose }) => {
                 setTimeout(() => inputRef.current?.focus(), 300);
               }}
             >
-              <MessageCircle className="w-6 h-6" />
+              <MessageCircle className="w-7 h-7" />
             </motion.button>
           )}
 
           {/* Chat Window */}
           {isChatOpen && (
             <motion.div
-              className="fixed bottom-8 right-8 w-80 bg-white rounded-2xl shadow-soft flex flex-col border border-gray-300"
+              className="fixed bottom-8 right-8 w-96 bg-white rounded-2xl shadow-lg flex flex-col border border-gray-300 max-h-[70vh]"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
             >
               {/* Chat Header */}
               <div className="bg-primary text-white p-3 rounded-t-2xl flex items-center justify-between">
-                <span className="font-semibold">Dummy Chatbot</span>
+                <span className="font-semibold">BeyondChats AI</span>
                 <button onClick={() => setIsChatOpen(false)}>
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Chat Messages */}
-              <div className="flex-1 p-3 space-y-2 overflow-auto text-sm text-gray-800 bg-gray-50 max-h-64">
+              <div className="flex-1 p-4 space-y-3 overflow-y-auto text-sm text-gray-800 bg-gray-50">
                 {messages.map((msg, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className={`px-3 py-2 rounded-lg w-fit max-w-[70%] ${
-                      msg.type === "user" ? "bg-green-100 self-end" : "bg-primary/10"
+                    className={`px-4 py-3 rounded-lg w-fit max-w-[75%] ${
+                      msg.type === "user"
+                        ? "bg-green-100 text-black self-end"
+                        : "bg-white shadow-md text-gray-700"
                     }`}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
                   >
                     {msg.text}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               {/* Chat Input */}
-              <div className="flex items-center p-2 bg-white rounded-b-2xl border-t">
+              <div className="flex items-center p-3 bg-white rounded-b-2xl border-t">
                 <input
                   ref={inputRef}
                   type="text"
                   placeholder="Type a message..."
-                  className="flex-1 border-none outline-none bg-transparent px-2 text-sm focus:ring-2 focus:ring-primary"
+                  className="flex-1 border-none outline-none bg-transparent px-3 py-2 text-sm focus:ring-2 focus:ring-primary"
                 />
-                <button
+                <motion.button
                   onClick={handleSendMessage}
-                  className="text-primary font-semibold hover:underline ml-2"
+                  className="text-primary font-semibold hover:scale-105 transition"
+                  whileHover={{ scale: 1.1 }}
                 >
-                  <Send className="w-5 h-5" />
-                </button>
+                  <Send className="w-6 h-6" />
+                </motion.button>
               </div>
             </motion.div>
           )}

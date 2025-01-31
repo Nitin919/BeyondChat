@@ -28,6 +28,13 @@
 .text-secondary { color: var(--color-secondary); }
 .text-card-foreground { color: var(--color-card-foreground); }
 
+/* ✅ Apply Global Background Gradient */
+body {
+  background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
 /* ✅ Soft Shadows (For Buttons, Cards, Modals) */
 .shadow-soft {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); /* More natural Soft UI shadow */
@@ -39,11 +46,6 @@
 /* ✅ Subtle Border Radius for Soft UI */
 .rounded-soft {
   border-radius: 18px;
-}
-
-/* ✅ Gradient for Hero Sections */
-.bg-hero-gradient {
-  background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
 }
 
 /* ✅ ANIMATIONS */

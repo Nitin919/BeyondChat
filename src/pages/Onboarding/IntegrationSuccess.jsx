@@ -12,7 +12,7 @@ export default function IntegrationSuccess() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4 relative">
+    <div className="min-h-screen flex items-center justify-center  p-4 relative">
       {/* 🎉 Confetti Animation */}
       <Confetti recycle={false} numberOfPieces={300} />
 

@@ -12,7 +12,7 @@ export default function IntegrationFailure() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+    <div className="min-h-screen flex items-center justify-center  p-4">
       <motion.div
         className="w-full max-w-md bg-card rounded-3xl p-6 shadow-soft space-y-6 text-center"
         initial={{ scale: 0.9, opacity: 0 }}

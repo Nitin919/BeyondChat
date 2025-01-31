@@ -41,7 +41,7 @@ export default function SetupOrganization() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <div className="min-h-screen flex items-center justify-center  px-4">
       <div className="w-full max-w-lg bg-card rounded-3xl p-6 shadow-soft space-y-6">
         {/* Header */}
         <div className="flex justify-between items-center">

@@ -46,7 +46,7 @@ export default function ScrapingProgress() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+    <div className="min-h-screen flex items-center justify-center  p-4">
       <div className="w-full max-w-3xl bg-card rounded-3xl p-6 shadow-soft space-y-6">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-display font-bold text-card-foreground">
