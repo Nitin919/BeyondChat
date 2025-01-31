@@ -18,7 +18,7 @@ BeyondChats is a chatbot company that helps businesses integrate AI chatbots int
 
 ## 📌 Live Demo
 
-🔗 [https://beyond-chat-rho.vercel.app/](https://beyond-chat-rho.vercel.app/)
+🔗 [https://beyond-chat-livid.vercel.app/](https://beyond-chat-livid.vercel.app/)
 
 ## 📝 Steps from Landing Page to Admin Panel
 
