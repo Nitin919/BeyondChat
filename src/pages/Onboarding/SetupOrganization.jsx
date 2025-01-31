@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SoftButton from "../../components/ui/SoftButton";
@@ -36,16 +33,18 @@ export default function SetupOrganization() {
       setError("All fields are required.");
       return;
     }
-    
+
     navigate("/scraping-progress");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-background">
       <div className="w-full max-w-lg bg-card rounded-3xl p-6 shadow-soft space-y-6">
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-display font-bold text-card-foreground">Organization Setup</h2>
+          <h2 className="text-2xl font-display font-bold text-card-foreground">
+            Organization Setup
+          </h2>
           <div className="w-14 h-14 rounded-full bg-primary shadow-soft flex items-center justify-center">
             <Globe2 className="w-6 h-6 text-white" />
           </div>
@@ -54,8 +53,16 @@ export default function SetupOrganization() {
         {/* Input Fields */}
         <div className="space-y-4">
           {[
-            { label: "Company Name", value: companyName, setter: setCompanyName },
-            { label: "Website URL (e.g. https://example.com)", value: websiteUrl, setter: setWebsiteUrl },
+            {
+              label: "Company Name",
+              value: companyName,
+              setter: setCompanyName,
+            },
+            {
+              label: "Website URL (e.g. https://example.com)",
+              value: websiteUrl,
+              setter: setWebsiteUrl,
+            },
           ].map(({ label, value, setter }, index) => (
             <div key={index} className="relative">
               <input
@@ -63,14 +70,18 @@ export default function SetupOrganization() {
                 value={value}
                 onChange={(e) => setter(e.target.value)}
                 className={`w-full h-12 rounded-full bg-card shadow-inner-soft px-4 font-display text-card-foreground text-base border ${
-                  error && !value ? "border-red-500" : "border-transparent"
+                  error && !value
+                    ? "border-red-500"
+                    : "border-transparent"
                 } focus:ring-2 focus:ring-primary outline-none`}
                 placeholder=" "
               />
               <label
                 className="absolute top-3 left-4 text-gray-500 text-sm transition-all duration-200"
                 style={{
-                  transform: value ? "translateY(-22px) scale(0.9)" : "",
+                  transform: value
+                    ? "translateY(-22px) scale(0.9)"
+                    : "",
                   color: value ? "#3B82F6" : "",
                 }}
               >
@@ -86,7 +97,9 @@ export default function SetupOrganization() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className={`w-full rounded-2xl bg-card shadow-inner-soft px-4 py-2 font-display text-card-foreground text-base resize-none border ${
-                error && !description ? "border-red-500" : "border-transparent"
+                error && !description
+                  ? "border-red-500"
+                  : "border-transparent"
               } focus:ring-2 focus:ring-primary outline-none`}
               placeholder="Company Description"
             />
@@ -109,10 +122,17 @@ export default function SetupOrganization() {
           <SoftButton
             variant="secondary"
             onClick={handleFetchMeta}
-            className="w-full"
+            className="w-full shadow-soft transition-transform hover:scale-105 active:scale-95"
             disabled={isFetching}
           >
-            {isFetching ? "Fetching..." : "Auto-Fetch Meta Description"}
+            {isFetching ? (
+              <span className="flex items-center space-x-2">
+                <span className="loader w-4 h-4 border-2 border-t-transparent border-primary rounded-full animate-spin"></span>
+                <span>Fetching...</span>
+              </span>
+            ) : (
+              "Auto-Fetch Meta Description"
+            )}
           </SoftButton>
         </div>
 
@@ -121,15 +141,16 @@ export default function SetupOrganization() {
           <SoftButton
             variant="primary"
             onClick={handleContinue}
-            className="flex-1"
-            whileHover={{ scale: 1.02 }}
+            className="flex-1 shadow-soft transition-transform hover:scale-105 active:scale-95"
           >
             Continue
           </SoftButton>
           <SoftButton
             variant="secondary"
-            onClick={() => toast.info("This is a dummy informational message.")}
-            className="flex-1"
+            onClick={() =>
+              toast.info("This is a dummy informational message.")
+            }
+            className="flex-1 shadow-soft transition-transform hover:scale-105 active:scale-95"
           >
             Information
           </SoftButton>
