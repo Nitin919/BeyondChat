@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SoftButton from "../../components/ui/SoftButton";
@@ -38,17 +34,19 @@ export default function EmailVerification() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  px-4">
-      <div className="w-full max-w-lg bg-card rounded-3xl p-6 shadow-soft space-y-5">
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="w-full max-w-md sm:max-w-lg bg-card rounded-3xl p-6 shadow-soft space-y-6">
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-display font-bold text-card-foreground">Verify Your Email</h2>
-          <div className="w-14 h-14 rounded-full bg-primary shadow-soft flex items-center justify-center">
-            <MailCheck className="w-6 h-6 text-white" />
+          <h2 className="text-xl sm:text-2xl font-display font-bold text-card-foreground">
+            Verify Your Email
+          </h2>
+          <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-primary shadow-soft flex items-center justify-center">
+            <MailCheck className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
         </div>
 
-        <p className="text-sm text-card-foreground">
+        <p className="text-sm sm:text-base text-card-foreground">
           We’ve sent a 6-digit code to your email. Please enter it below:
         </p>
 
@@ -68,12 +66,18 @@ export default function EmailVerification() {
             {error && <p className="text-sm text-red-500 mt-1 text-center">{error}</p>}
           </div>
 
-          <SoftButton type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
+          <SoftButton
+            type="submit"
+            variant="primary"
+            className="w-full"
+            disabled={isSubmitting}
+            whileTap={{ scale: 0.95 }}
+          >
             {isSubmitting ? "Verifying..." : "Verify"}
           </SoftButton>
         </form>
 
-        {/* Resend Code Button */}
+        {/* Resend Code */}
         <div className="flex justify-center">
           <button
             className="text-primary text-sm hover:underline"

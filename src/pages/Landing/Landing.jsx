@@ -178,7 +178,7 @@ export default function Landing() {
           {/* Navbar */}
           <nav className="flex items-center justify-between p-6">
             <motion.div
-              className="text-white text-2xl font-bold cursor-pointer"
+              className="text-white text-2xl md:text-3xl font-bold cursor-pointer"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
             >
@@ -189,17 +189,17 @@ export default function Landing() {
               onClick={() => navigate("/login")}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-white underline"
+              className="bg-gradient-to-r from-primary via-gray-800 to-black text-white px-6 py-2 rounded-full text-sm md:text-base font-semibold shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
             >
               Login
             </motion.button>
           </nav>
 
           {/* Hero Section */}
-          <div className="flex-1 flex flex-col-reverse md:flex-row items-center justify-center max-w-6xl mx-auto px-6 md:py-12">
+          <div className="flex-1 flex flex-col-reverse md:flex-row items-center justify-center max-w-6xl mx-auto px-6 py-8 md:py-16">
             {/* Left Column - Headings & CTA */}
             <motion.div
-              className="md:w-1/2 flex flex-col space-y-6 mt-8 md:mt-0"
+              className="md:w-1/2 flex flex-col space-y-6 mt-8 md:mt-0 text-center md:text-left"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -207,11 +207,11 @@ export default function Landing() {
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 Supercharge Your Customer Engagement with BeyondChats
               </h1>
-              <p className="text-white text-sm md:text-base max-w-lg">
+              <p className="text-white text-sm md:text-base max-w-lg mx-auto md:mx-0">
                 Our AI-powered chatbot helps you deliver instant support, generate leads, and increase conversions—without writing a single line of code.
               </p>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                 <SoftButton
                   variant="primary"
                   className="text-base px-6 py-3"
@@ -246,7 +246,7 @@ export default function Landing() {
 
           {/* Features Section */}
           <motion.div
-            className="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-3"
+            className="max-w-6xl mx-auto px-6 py-12 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

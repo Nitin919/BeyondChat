@@ -1,15 +1,11 @@
-
-
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SoftButton from "../../components/ui/SoftButton";
 import { MessageCircle, Code2, Clipboard } from "lucide-react";
 import MockChatbotModal from "../../components/modals/MockChatbotModal";
 import FeedbackModal from "../../components/modals/FeedbackModal";
 import { AnimatePresence, motion } from "framer-motion";
 import toast from "react-hot-toast";
+import SoftButton from "../../components/ui/SoftButton";
 
 export default function ChatbotIntegration() {
   const navigate = useNavigate();
@@ -45,11 +41,16 @@ export default function ChatbotIntegration() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col  p-4 relative">
+    <div className="min-h-screen flex flex-col p-4  relative">
       {/* Feedback Top Bar */}
       <div className="bg-secondary text-card-foreground px-4 py-2 rounded-md mb-4 shadow-soft flex items-center justify-between">
-        <span className="text-sm font-semibold">Chatbot not working as intended? Share feedback</span>
-        <button onClick={() => setShowFeedbackModal(true)} className="underline text-primary text-sm font-medium">
+        <span className="text-sm font-semibold">
+          Chatbot not working as intended? Share feedback
+        </span>
+        <button
+          onClick={() => setShowFeedbackModal(true)}
+          className="underline text-primary text-sm font-medium"
+        >
           Feedback
         </button>
       </div>
@@ -79,24 +80,44 @@ export default function ChatbotIntegration() {
 
         <div className="w-full max-w-2xl bg-card rounded-3xl p-6 shadow-soft space-y-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-display font-bold text-card-foreground">Chatbot Integration & Testing</h2>
+            <h2 className="text-2xl font-display font-bold text-card-foreground">
+              Chatbot Integration & Testing
+            </h2>
             <div className="w-14 h-14 rounded-full bg-primary shadow-soft flex items-center justify-center">
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
           </div>
 
-          <p className="text-sm text-card-foreground">This step lets you test your chatbot and integrate it on your website.</p>
+          <p className="text-sm text-card-foreground">
+            This step lets you test your chatbot and integrate it on your
+            website.
+          </p>
 
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <SoftButton variant="primary" className="flex-1" onClick={handleTestChatbot} whileHover={{ scale: 1.02 }}>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <SoftButton
+              variant="primary"
+              className="w-full sm:flex-1"
+              onClick={handleTestChatbot}
+              whileHover={{ scale: 1.02 }}
+            >
               Test Chatbot
             </SoftButton>
 
-            <SoftButton variant="secondary" className="flex-1" onClick={handleShowIntegration} whileHover={{ scale: 1.02 }}>
+            <SoftButton
+              variant="secondary"
+              className="w-full sm:flex-1"
+              onClick={handleShowIntegration}
+              whileHover={{ scale: 1.02 }}
+            >
               Integrate on Your Website
             </SoftButton>
 
-            <SoftButton variant="primary" className="flex-1" onClick={handleTestIntegration} whileHover={{ scale: 1.02 }}>
+            <SoftButton
+              variant="primary"
+              className="w-full sm:flex-1"
+              onClick={handleTestIntegration}
+              whileHover={{ scale: 1.02 }}
+            >
               Test Integration
             </SoftButton>
           </div>
@@ -104,7 +125,9 @@ export default function ChatbotIntegration() {
       </div>
 
       {/* Mock Chatbot Modal */}
-      {showChatbotTest && <MockChatbotModal onClose={() => setShowChatbotTest(false)} />}
+      {showChatbotTest && (
+        <MockChatbotModal onClose={() => setShowChatbotTest(false)} />
+      )}
 
       {/* Integration Snippet Modal */}
       <AnimatePresence>
@@ -122,13 +145,18 @@ export default function ChatbotIntegration() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <button className="absolute top-3 right-3 text-gray-400 hover:text-gray-600" onClick={handleHideIntegration}>
+              <button
+                className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+                onClick={handleHideIntegration}
+              >
                 &times;
               </button>
 
               <div className="flex items-center space-x-2 mb-4">
                 <Code2 className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-display font-bold text-card-foreground">Integration Instructions</h3>
+                <h3 className="text-lg font-display font-bold text-card-foreground">
+                  Integration Instructions
+                </h3>
               </div>
 
               <p className="text-sm text-card-foreground mb-4">
@@ -146,7 +174,12 @@ export default function ChatbotIntegration() {
               </div>
 
               <div className="flex gap-2">
-                <SoftButton variant="secondary" onClick={() => (window.location.href = "mailto:developer@example.com")}>
+                <SoftButton
+                  variant="secondary"
+                  onClick={() =>
+                    (window.location.href = "mailto:developer@example.com")
+                  }
+                >
                   Mail Instructions
                 </SoftButton>
                 <SoftButton variant="primary" onClick={handleHideIntegration}>
@@ -159,7 +192,9 @@ export default function ChatbotIntegration() {
       </AnimatePresence>
 
       {/* Feedback Modal */}
-      {showFeedbackModal && <FeedbackModal onClose={() => setShowFeedbackModal(false)} />}
+      {showFeedbackModal && (
+        <FeedbackModal onClose={() => setShowFeedbackModal(false)} />
+      )}
     </div>
   );
 }

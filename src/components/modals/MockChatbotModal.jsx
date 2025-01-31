@@ -36,7 +36,7 @@ const MockChatbotModal = ({ onClose }) => {
         exit={{ opacity: 0 }}
       >
         <motion.div
-          className="relative w-full max-w-3xl bg-card rounded-3xl p-6 shadow-soft overflow-hidden"
+          className="relative w-full max-w-lg bg-card rounded-3xl p-6 shadow-soft overflow-hidden"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0.9 }}
@@ -48,19 +48,21 @@ const MockChatbotModal = ({ onClose }) => {
             onClick={onClose}
             aria-label="Close chatbot modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-card-foreground mb-4">Mock Client Website</h3>
+          <h3 className="text-xl font-bold text-card-foreground mb-4">
+            Mock Client Website
+          </h3>
           <p className="text-gray-700 mb-6">
             This is a dummy client site. Click the chatbot icon below to test.
           </p>
 
-          {/* Chatbot Bubble */}
+          {/* Chatbot Bubble (Button to Open Chat) */}
           {!isChatOpen && (
             <motion.button
-              className="fixed bottom-8 right-8 bg-primary text-white p-5 rounded-full shadow-md flex items-center justify-center animate-bob"
+              className="fixed bottom-6 md:bottom-8 right-6 md:right-8 bg-primary text-white p-5 rounded-full shadow-md flex items-center justify-center animate-bob"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -68,14 +70,14 @@ const MockChatbotModal = ({ onClose }) => {
                 setTimeout(() => inputRef.current?.focus(), 300);
               }}
             >
-              <MessageCircle className="w-7 h-7" />
+              <MessageCircle className="w-8 h-8" />
             </motion.button>
           )}
 
           {/* Chat Window */}
           {isChatOpen && (
             <motion.div
-              className="fixed bottom-8 right-8 w-96 bg-white rounded-2xl shadow-lg flex flex-col border border-gray-300 max-h-[70vh]"
+              className="fixed bottom-6 md:bottom-8 right-4 md:right-8 w-full max-w-[90%] md:max-w-sm lg:max-w-md bg-white rounded-2xl shadow-lg flex flex-col border border-gray-300 max-h-[75vh] sm:max-h-[60vh]"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
@@ -84,7 +86,7 @@ const MockChatbotModal = ({ onClose }) => {
               <div className="bg-primary text-white p-3 rounded-t-2xl flex items-center justify-between">
                 <span className="font-semibold">BeyondChats AI</span>
                 <button onClick={() => setIsChatOpen(false)}>
-                  <X className="w-5 h-5" />
+                  <X className="w-6 h-6" />
                 </button>
               </div>
 
@@ -93,7 +95,7 @@ const MockChatbotModal = ({ onClose }) => {
                 {messages.map((msg, index) => (
                   <motion.div
                     key={index}
-                    className={`px-4 py-3 rounded-lg w-fit max-w-[75%] ${
+                    className={`px-4 py-3 rounded-lg w-fit max-w-[80%] md:max-w-[75%] ${
                       msg.type === "user"
                         ? "bg-green-100 text-black self-end"
                         : "bg-white shadow-md text-gray-700"

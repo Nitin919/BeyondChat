@@ -1,10 +1,9 @@
-// src/pages/AdminPanel/AdminDashboard.jsx
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
 import StatsCard from "./StatsCard";
 import RecentActivity from "./RecentActivity";
-import { Users, MessageSquare, CheckCircle, Zap } from "lucide-react";
+import { Users, MessageSquare, CheckCircle, Zap, Menu } from "lucide-react";
 
 export default function AdminDashboard() {
   const stats = [
@@ -14,15 +13,26 @@ export default function AdminDashboard() {
     { label: "Active Integrations", value: "73", icon: Zap },
   ];
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div className="flex">
+    <div className="flex min-h-screen bg-background">
+      {/* Sidebar Toggle Button */}
+      <button
+        className="sm:hidden fixed top-4 left-4 bg-primary text-white p-3 rounded-full shadow-lg z-50"
+        onClick={() => setIsSidebarOpen(true)}
+        aria-label="Open Sidebar"
+      >
+        <Menu className="w-6 h-6" />
+      </button>
+
       {/* Sidebar */}
-      <Sidebar activePage="Dashboard" />
+      <Sidebar activePage="Dashboard" isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-background">
+      <main className="flex-1 p-4 sm:p-6">
         <motion.h1
-          className="text-3xl font-bold text-card-foreground mb-6"
+          className="text-2xl sm:text-3xl font-bold text-card-foreground mb-6"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
