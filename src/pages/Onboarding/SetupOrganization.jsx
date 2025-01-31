@@ -38,7 +38,7 @@ export default function SetupOrganization() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 ">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-lg bg-card rounded-3xl p-6 shadow-soft space-y-6">
         {/* Header */}
         <div className="flex justify-between items-center">
@@ -52,38 +52,19 @@ export default function SetupOrganization() {
 
         {/* Input Fields */}
         <div className="space-y-4">
-          {[
-            {
-              label: "Company Name",
-              value: companyName,
-              setter: setCompanyName,
-            },
-            {
-              label: "Website URL (e.g. https://example.com)",
-              value: websiteUrl,
-              setter: setWebsiteUrl,
-            },
-          ].map(({ label, value, setter }, index) => (
+          {[{ label: "Company Name", value: companyName, setter: setCompanyName },
+            { label: "Website URL (e.g. https://example.com)", value: websiteUrl, setter: setWebsiteUrl }].map(({ label, value, setter }, index) => (
             <div key={index} className="relative">
               <input
                 type="text"
                 value={value}
                 onChange={(e) => setter(e.target.value)}
-                className={`w-full h-12 rounded-full bg-card shadow-inner-soft px-4 font-display text-card-foreground text-base border ${
-                  error && !value
-                    ? "border-red-500"
-                    : "border-transparent"
-                } focus:ring-2 focus:ring-primary outline-none`}
+                className={`w-full h-12 rounded-full bg-card shadow-inner-soft px-4 font-display text-card-foreground text-base border ${error && !value ? "border-red-500" : "border-transparent"} focus:ring-2 focus:ring-primary outline-none`}
                 placeholder=" "
               />
               <label
                 className="absolute top-3 left-4 text-gray-500 text-sm transition-all duration-200"
-                style={{
-                  transform: value
-                    ? "translateY(-22px) scale(0.9)"
-                    : "",
-                  color: value ? "#3B82F6" : "",
-                }}
+                style={{ transform: value ? "translateY(-22px) scale(0.9)" : "", color: value ? "#3B82F6" : "" }}
               >
                 {label}
               </label>
@@ -96,11 +77,7 @@ export default function SetupOrganization() {
               rows={3}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className={`w-full rounded-2xl bg-card shadow-inner-soft px-4 py-2 font-display text-card-foreground text-base resize-none border ${
-                error && !description
-                  ? "border-red-500"
-                  : "border-transparent"
-              } focus:ring-2 focus:ring-primary outline-none`}
+              className={`w-full rounded-2xl bg-card shadow-inner-soft px-4 py-2 font-display text-card-foreground text-base resize-none border ${error && !description ? "border-red-500" : "border-transparent"} focus:ring-2 focus:ring-primary outline-none`}
               placeholder="Company Description"
             />
           </div>
@@ -137,20 +114,18 @@ export default function SetupOrganization() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-4">
+        <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full">
           <SoftButton
             variant="primary"
             onClick={handleContinue}
-            className="flex-1 shadow-soft transition-transform hover:scale-105 active:scale-95"
+            className="w-full sm:w-auto flex-1 py-3 text-center text-base sm:text-lg shadow-soft transition-transform hover:scale-105 active:scale-95"
           >
             Continue
           </SoftButton>
           <SoftButton
             variant="secondary"
-            onClick={() =>
-              toast.info("This is a dummy informational message.")
-            }
-            className="flex-1 shadow-soft transition-transform hover:scale-105 active:scale-95"
+            onClick={() => toast.info("This is a dummy informational message.")}
+            className="w-full sm:w-auto flex-1 py-3 text-center text-base sm:text-lg shadow-soft transition-transform hover:scale-105 active:scale-95"
           >
             Information
           </SoftButton>

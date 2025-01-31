@@ -1,186 +1,70 @@
-# BeyondChats - Chatbot Integration Platform
+# BeyondChats - Chatbot Setup UI
 
-## **Project Overview**
-BeyondChats is a comprehensive platform designed to streamline chatbot integration and enhance customer engagement. This application allows users to:
+## 🚀 Project Overview
 
-- Register and authenticate accounts.
-- Set up organizational details.
-- Monitor website scraping progress.
-- Integrate chatbots seamlessly into websites.
-- Access an admin panel for analytics and management.
+BeyondChats is a chatbot company that helps businesses integrate AI chatbots into their websites. This project is a **UI/UX workflow** for setting up a new chatbot for businesses, featuring a smooth onboarding experience, chatbot training status tracking, and easy integration steps.
 
-The project is built with a focus on responsiveness, smooth animations, and a modern UI/UX experience.
+## 🎯 Features
 
----
+- **User Registration**: Name, Email, Password, or Google Authentication.
+- **Email Verification**: Submit a verification code (Default OTP: `123456`).
+- **Setup Organization**: Enter company details (Bonus: Auto-fetch meta-description from the website).
+- **Chatbot Training Status**: View detected web pages, scraped pages, and pending pages (dummy data included).
+- **Chatbot Integration & Testing**:
+  - Test chatbot in a dummy environment.
+  - Integration via script or email to developer.
+  - Success screen with Confetti UI.
+  - Admin Panel and Chatbot access options.
 
-## **Features**
+## 📌 Live Demo
 
-### **Authentication System**
-- User Registration: Secure registration with real-time validation.
-- Login: Login functionality with error handling for invalid credentials.
-- Email Verification: A simulated email verification process.
+🔗 [https://beyond-chat-rho.vercel.app/](https://beyond-chat-rho.vercel.app/)
 
-### **Onboarding Workflow**
-- Organization Setup: Collect company name, website URL, and descriptions.
-- Website Scraping: Monitor progress and view extracted data.
-- Chatbot Integration: Embed chatbot scripts and test integration.
+## 📝 Steps from Landing Page to Admin Panel
 
-### **Admin Panel**
-- **Dashboard**:
-  - Display statistics such as total users, chatbots, messages processed, and active integrations.
-- **Recent Activity**:
-  - View the latest user actions in a responsive table.
-- **Sidebar Navigation**:
-  - Smooth toggling on mobile with a responsive design.
+1. **Landing Page**: Start by clicking on "Get Started" or "Register."
+2. **User Registration**: Enter details (Name, Email, Password) or continue with Google.
+3. **Redirect to Landing Page**: After successful registration, the user is redirected to the landing page.
+4. **User Login**: Click on "Login" and enter registered credentials.
+5. **Email Verification**: Enter the OTP `123456` to proceed.
+6. **Setup Organization**: Provide company name, website URL, and description (meta-data auto-fetch if applicable).
+7. **Chatbot Training Status**: View the scraped and pending pages detected from the company website.
+8. **Chatbot Integration**: Choose between direct integration (copy-paste script) or email instructions to the developer.
+9. **Success Screen**: Confetti animation and confirmation message.
+10. **Admin Panel Access**: Explore the admin panel or start chatting with the bot.
 
-### **Enhanced User Experience**
-- Smooth animations powered by Framer Motion.
-- Fully responsive UI for all devices.
-- Dark and light theme compatibility.
+## 📝 Registration & Login Credentials
 
----
+- The application does not have predefined dummy credentials.
+- User **must register manually** as credentials are stored in **local storage/session storage**.
+- After registration, users need to manually log in again.
+- OTP for email verification is always `123456`.
+- If revisiting the site, check local storage to retrieve saved credentials.
 
-## **Tech Stack**
+## 🏗️ How to Run Locally
 
-### **Frontend**
-- **React**: For building dynamic user interfaces.
-- **React Router**: For seamless navigation.
-- **Framer Motion**: For animations and transitions.
-- **TailwindCSS**: For modern, responsive, and utility-first styling.
-
-### **Additional Libraries**
-- **Lucide-React**: For crisp and scalable icons.
-- **React-Hot-Toast**: For user-friendly notifications.
-
-### **Deployment**
-- Hosted on **Vercel** for a fast and reliable deployment.
-
----
-
-## **File Structure**
-
-```plaintext
-src/
-├── components/
-│   ├── modals/  # Reusable modal components like FeedbackModal, MockChatbotModal
-│   └── ui/      # UI components like SoftButton
-├── pages/
-│   ├── Auth/   # Authentication-related pages (Login, Register, EmailVerification)
-│   ├── Onboarding/ # Onboarding workflow (SetupOrganization, ScrapingProgress, etc.)
-│   ├── AdminPanel/ # Admin dashboard components
-│   └── Landing/ # Landing page
-├── utils/        # Utility functions and mock data
-└── App.jsx       # Main application with routes and animations
-```
-
----
-
-## **Development Workflow**
-
-### **Step 1: Setup Authentication**
-1. Built registration and login pages with real-time form validation.
-2. Added email verification with a simulated process.
-
-### **Step 2: Onboarding Workflow**
-1. Designed a multi-step workflow for onboarding:
-   - Organization setup to capture essential details.
-   - Scraping progress visualization with mock data.
-   - Integration instructions and chatbot testing.
-
-### **Step 3: Admin Panel**
-1. Created a responsive sidebar with smooth toggle functionality.
-2. Designed cards to display key statistics.
-3. Built a recent activity table for tracking user actions.
-
-### **Step 4: Animations and Responsiveness**
-1. Used Framer Motion for page transitions and micro-interactions.
-2. Ensured full responsiveness for all devices using TailwindCSS utilities.
-
-### **Step 5: Final Touches**
-1. Polished the UI with consistent theming.
-2. Deployed the app to Vercel for easy access.
-
----
-
-## **Challenges and Solutions**
-
-### **Responsive Design**
-- **Challenge**: Ensuring all components are responsive.
-- **Solution**: Used TailwindCSS’s utility classes and tested on multiple devices.
-
-### **Animations**
-- **Challenge**: Adding smooth transitions without performance issues.
-- **Solution**: Leveraged Framer Motion for optimized animations.
-
-### **Sidebar Navigation**
-- **Challenge**: Implementing a mobile-friendly sidebar toggle.
-- **Solution**: Used state management and conditional rendering for seamless behavior.
-
----
-
-## **How to Run the Project Locally**
-
-1. Clone the repository:
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-repo/beyondchats.git
+   git clone https://github.com/Nitin919/BeyondChat.git
    ```
-
-2. Navigate to the project directory:
+2. **Navigate to the Project**:
    ```bash
-   cd beyondchats
+   cd BeyondChat
    ```
-
-3. Install dependencies:
+3. **Install Dependencies**:
    ```bash
    npm install
    ```
-
-4. Start the development server:
+4. **Run the Development Server**:
    ```bash
-   npm start
+   npm run dev
    ```
+5. **Open in Browser**:
+   Visit `http://localhost:3000`
 
-5. Open your browser and visit:
-   ```plaintext
-   http://localhost:3000
-   ```
+
 
 ---
 
-## **Live Demo**
-Check out the live version of the project here:
-[https://beyond-chat-livid.vercel.app/](https://beyond-chat-livid.vercel.app/)
-
----
-
-## **Future Enhancements**
-1. **Role-Based Access Control**:
-   - Differentiate between admin and regular users.
-2. **Analytics Dashboard**:
-   - Real-time data visualization for admin stats.
-3. **Backend Integration**:
-   - Connect with APIs to handle real data.
-4. **Advanced Chatbot Features**:
-   - Natural Language Processing (NLP) for dynamic responses.
-
----
-
-## **Contributing**
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add new feature"
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a pull request.
-
----
 
 
